@@ -1,0 +1,61 @@
+# scraper-api
+[![npm](https://img.shields.io/npm/v/scraper-api.svg?style=for-the-badge)](https://www.npmjs.com/package/scraper-api) [![npm](https://img.shields.io/npm/dt/scraper-api.svg?style=for-the-badge)](https://www.npmjs.com/package/scraper-api) [![David](https://img.shields.io/david/KyleRoss/node-scraper-api.svg?style=for-the-badge)](https://david-dm.org/KyleRoss/node-scraper-api) [![Travis](https://img.shields.io/travis/KyleRoss/node-scraper-api/master.svg?style=for-the-badge)](https://travis-ci.org/KyleRoss/node-scraper-api) [![Coveralls](https://img.shields.io/coveralls/github/KyleRoss/node-scraper-api.svg?style=for-the-badge)](https://coveralls.io/github/KyleRoss/node-scraper-api) [![license](https://img.shields.io/github/license/KyleRoss/node-scraper-api.svg?style=for-the-badge)](https://github.com/KyleRoss/node-scraper-api/blob/master/LICENSE) [![Beerpay](https://img.shields.io/beerpay/KyleRoss/node-scraper-api.svg?style=for-the-badge)](https://beerpay.io/KyleRoss/node-scraper-api)
+
+Interface to call [ScraperAPI.com](https://www.scraperapi.com) easily from Node. All current API endpoints and features are implemented in this module. Requires Node 8+.
+
+## Install
+
+```bash
+$ npm install --save scraper-api
+```
+
+## Usage
+```js
+const scraperAPI = require('scraper-api')({
+    // ... options
+});
+
+scraperAPI.get('http://httpbin.org/ip')
+    .then(result => {
+        // result => '<!doctype html> ...'
+    })
+    .catch(error => {
+        console.error(error);
+        //=> 'Internal server error'
+    });
+```
+
+# API Documentation
+{{#orphans ~}}
+{{>docs~}}
+{{/orphans~}}
+
+---
+
+## More Information
+
+### keepHeaders Option
+If you would like to pass custom headers through Scraper API to the destination, you may do so by setting your custom headers in `options.gotOptions.headers` and enabling this option.
+
+```js
+let result = await scraperAPI.get('https://google.com', {
+    keepHeaders: true,
+    gotOptions: {
+        headers: {
+            'My-Custom-Header': 'some value'
+        }
+    }
+});
+```
+
+---
+
+## Tests
+Tests are written and provided as part of the module. You may run the tests by calling:
+
+```bash
+$ npm run test
+```
+
+## License
+MIT License. See [License](https://github.com/KyleRoss/node-scraper-api/blob/master/LICENSE) in the repository.
