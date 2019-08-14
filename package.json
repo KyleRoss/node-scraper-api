@@ -1,6 +1,6 @@
 {
   "name": "scraper-api",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Interface for calling ScraperAPI from Node",
   "main": "index.js",
   "scripts": {
